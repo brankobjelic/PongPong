@@ -34,7 +34,7 @@ public class Ball : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        ScoreZone scoreZone = collision.GetComponent<ScoreZone>();  //checking if object with witch the ball collided has the ScoreZone component
+        ScoreZone scoreZone = collision.GetComponent<ScoreZone>();  //checking if the object the ball collided with has the ScoreZone component
         if(scoreZone != null )
         {
             gameManager.OnScoreZoneReached(scoreZone.id);
