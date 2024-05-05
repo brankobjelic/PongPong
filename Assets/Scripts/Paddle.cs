@@ -21,7 +21,7 @@ public class Paddle : MonoBehaviour
         switch (id)
         {
             case 1:
-                movement = Input.GetAxis("MovePlayer1");
+                movement = Input.GetAxis("MovePlayer1");    //  -1, 0 or 1
                 break;
             case 2:
                 movement = Input.GetAxis("MovePlayer2");
