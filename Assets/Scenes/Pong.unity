@@ -183,7 +183,7 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!61 &28312313
 BoxCollider2D:
@@ -298,6 +298,7 @@ MonoBehaviour:
   rb2d: {fileID: 28312312}
   maxInitialAngle: 0.67
   moveSpeed: 8
+  moveSpeedMultiplier: 1.05
   startX: 0
 --- !u!224 &190495247 stripped
 RectTransform:

@@ -8,6 +8,7 @@ public class Ball : MonoBehaviour
     public Rigidbody2D rb2d;
     public float maxInitialAngle = 0.67f;
     public float moveSpeed = 3f;
+    public float moveSpeedMultiplier = 1.05f;
 
     //on reset x position starts from the middle, y position will be random
     public float startX = 0f;
@@ -28,18 +29,25 @@ public class Ball : MonoBehaviour
     private void ResetBall()
     {
         float posY = Random.Range(-maxStartY, maxStartY);
-        Vector2 position = new Vector2(startX, posY);
+        Vector2 position = new(startX, posY);
         transform.position = position;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        ScoreZone scoreZone = collision.GetComponent<ScoreZone>();  //checking if the object the ball collided with has the ScoreZone component
-        if(scoreZone != null )
+        if(collision.TryGetComponent<ScoreZone>(out var scoreZone))
         {
             gameManager.OnScoreZoneReached(scoreZone.id);
             ResetBall();
             InitialPush();
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.collider.TryGetComponent<Paddle>(out var paddle))
+        {
+            rb2d.velocity *= moveSpeedMultiplier;
         }
     }
 }
