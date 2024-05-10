@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Ball : MonoBehaviour
 {
-    public GameManager gameManager;
+    //public GameManager gameManager;
     public Rigidbody2D rb2d;
     public float maxInitialAngle = 0.67f;
     public float moveSpeed = 3f;
@@ -17,6 +17,7 @@ public class Ball : MonoBehaviour
     private void Start()
     {
         InitialPush();
+        GameManager.instance.onReset += ResetBall;  //assign ResetBall method to OnReset Action variable (delegate)
     }
     
     private void InitialPush()
@@ -37,7 +38,8 @@ public class Ball : MonoBehaviour
     {
         if(collision.TryGetComponent<ScoreZone>(out var scoreZone))
         {
-            gameManager.OnScoreZoneReached(scoreZone.id);
+            //gameManager.OnScoreZoneReached(scoreZone.id);
+            GameManager.instance.OnScoreZoneReached(scoreZone.id);
             ResetBall();
             InitialPush();
         }
