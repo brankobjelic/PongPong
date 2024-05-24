@@ -72,7 +72,7 @@ crashlytics-build.properties
 /[Aa]ssets/[Ss]treamingAssets/aa/*
 
 # Textmesh Pro Assets
-/[Aa]ssets/[Tt]extMesh Pro
+/[Aa]ssets/[Tt]extMesh*Pro
 
 
 # Web GL Build files
