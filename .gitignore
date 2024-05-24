@@ -71,6 +71,10 @@ crashlytics-build.properties
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
 
+# Textmesh Pro Assets
+/[Aa]ssets/[Tt]TextMesh Pro/*
+
+
 # Web GL Build files
 /webGLbuild
 /webGLbuild.zip
