@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6750029249805180297}
   - component: {fileID: -1179000320709430256}
   - component: {fileID: 577410674891440224}
+  - component: {fileID: 2195108444958086997}
   m_Layer: 5
   m_Name: ScoreText
   m_TagString: Untagged
@@ -59,6 +60,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text: {fileID: 577410674891440224}
+  animator: {fileID: 2195108444958086997}
 --- !u!114 &577410674891440224
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -82,7 +84,7 @@ MonoBehaviour:
   m_text: 0
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2bb5b15a4a307e34dbcc79bc89ec4607, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 5545449603121435332, guid: 2bb5b15a4a307e34dbcc79bc89ec4607, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -148,3 +150,24 @@ MonoBehaviour:
   m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!95 &2195108444958086997
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3752735059549549678}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: af01dea67bfd9d94791e42afa616052c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

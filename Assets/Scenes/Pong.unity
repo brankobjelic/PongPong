@@ -294,7 +294,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75d439bb13ab3c148b648b29450150e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameManager: {fileID: 797564855}
   rb2d: {fileID: 28312312}
   maxInitialAngle: 0.67
   moveSpeed: 8

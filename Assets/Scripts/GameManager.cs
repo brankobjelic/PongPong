@@ -34,11 +34,20 @@ public class GameManager : MonoBehaviour
             scorePlayer2++;
 
         UpdateScores();
+        HighlightScore(id);
     }
 
     private void UpdateScores()
     {
         scoreTextLeft.SetScore(scorePlayer1);
         scoreTextRight.SetScore(scorePlayer2);
+    }
+
+    private void HighlightScore(int id)
+    {
+        if (id == 1)
+            scoreTextLeft.Highlight();
+        else
+            scoreTextRight.Highlight();
     }
 }
