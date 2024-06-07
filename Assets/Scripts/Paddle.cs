@@ -36,4 +36,9 @@ public class Paddle : MonoBehaviour
         vlct.y = movement * moveSpeed;
         rb2d.velocity = vlct;
     }
+
+    public bool IsLeftPaddle()
+    {
+        return id == 1;
+    }
 }
