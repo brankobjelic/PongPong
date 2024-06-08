@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour
     public GameUI gameUI;
     public int scorePlayer1, scorePlayer2;
     
-    public Action onReset;
+    public Action onReset;  //delegate
 
     private void Awake()
     {
