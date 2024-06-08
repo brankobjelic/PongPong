@@ -1,12 +1,15 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class GameUI : MonoBehaviour
 {
     public ScoreText scoreTextPlayer1, scoreTextPlayer2;
     public GameObject menuObject;
+    public TextMeshProUGUI winTitle;
+
     public Action onStartGame;
 
     public void UpdateScores(int scorePlayer1, int scorePlayer2)
@@ -27,5 +30,11 @@ public class GameUI : MonoBehaviour
     {
         menuObject.SetActive(false);
         onStartGame?.Invoke();
+    }
+
+    public void OnGameEnds(int winnerId) 
+    {
+        menuObject.SetActive(true);
+        winTitle.text = $"Player {winnerId} wins!";
     }
 }
