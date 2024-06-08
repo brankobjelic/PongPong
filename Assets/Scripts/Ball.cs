@@ -13,7 +13,7 @@ public class Ball : MonoBehaviour
 
     //on reset x position starts from the middle, y position will be random
     public float startX = 0f;
-    private float maxStartY = 0f;   //private so it cannot be changed from Inspector
+    private readonly float maxStartY = 0f;   //private so it cannot be changed from Inspector
 
     private void Start()
     {
@@ -36,14 +36,12 @@ public class Ball : MonoBehaviour
         InitialPush();
     }
 
+    // MonoBehaviour.OnTriggerEnter2D(Collider2D) - Sent when another object enters a trigger collider attached to this object
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.TryGetComponent<ScoreZone>(out var scoreZone))
         {
-            //gameManager.OnScoreZoneReached(scoreZone.id);
             GameManager.instance.OnScoreZoneReached(scoreZone.id);
-            ResetBall();
-            InitialPush();
         }
     }
 
