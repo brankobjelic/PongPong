@@ -17,8 +17,8 @@ public class Ball : MonoBehaviour
 
     private void Start()
     {
-        InitialPush();
         GameManager.instance.onReset += ResetBall;  //assign ResetBall method to OnReset Action variable (delegate)
+        GameManager.instance.gameUI.onStartGame += ResetBall;
     }
     
     private void InitialPush()
@@ -33,6 +33,7 @@ public class Ball : MonoBehaviour
         float posY = Random.Range(-maxStartY, maxStartY);
         Vector2 position = new(startX, posY);
         transform.position = position;
+        InitialPush();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
