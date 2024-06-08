@@ -21,13 +21,12 @@ public class GameManager : MonoBehaviour
         else
         {
             instance = this;
+            gameUI.onStartGame += OnStartGame;
         }
     }
 
     public void OnScoreZoneReached(int id)
     {
-        if (onReset != null) onReset();
-
         if (id == 1)
             scorePlayer1++;
 
@@ -46,5 +45,16 @@ public class GameManager : MonoBehaviour
         {
             gameUI.OnGameEnds(winnerId);
         }
+        else
+        {
+            onReset?.Invoke();
+        }
+    }
+
+    private void OnStartGame()
+    {
+        scorePlayer1 = 0;
+        scorePlayer2 = 0;
+        gameUI.UpdateScores(scorePlayer1, scorePlayer2);
     }
 }
