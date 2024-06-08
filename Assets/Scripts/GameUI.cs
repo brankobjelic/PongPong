@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,6 +7,7 @@ public class GameUI : MonoBehaviour
 {
     public ScoreText scoreTextPlayer1, scoreTextPlayer2;
     public GameObject menuObject;
+    public Action onStartGame;
 
     public void UpdateScores(int scorePlayer1, int scorePlayer2)
     {
@@ -24,5 +26,6 @@ public class GameUI : MonoBehaviour
     public void OnStartButtonClicked()
     {
         menuObject.SetActive(false);
+        onStartGame?.Invoke();
     }
 }
