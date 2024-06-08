@@ -8,9 +8,9 @@ public class GameManager : MonoBehaviour
     public static GameManager instance; //singleton
 
     public GameUI gameUI;
-    public int scorePlayer1, scorePlayer2;
-    
+    public int scorePlayer1, scorePlayer2;    
     public Action onReset;  //delegate
+    public int winScore = 3;
 
     private void Awake()
     {
@@ -36,7 +36,15 @@ public class GameManager : MonoBehaviour
 
         gameUI.UpdateScores(scorePlayer1, scorePlayer2);
         gameUI.HighlightScore(id);
+        CheckWin();
     }
 
-
+    private void CheckWin()
+    {
+        int winnerId = scorePlayer1 == winScore ? 1 : scorePlayer2 == winScore ? 2 : 0;
+        if (winnerId != 0)
+        {
+            gameUI.OnGameEnds(winnerId);
+        }
+    }
 }
