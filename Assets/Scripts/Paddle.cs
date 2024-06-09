@@ -21,7 +21,7 @@ public class Paddle : MonoBehaviour
         switch (id)
         {
             case 1:
-                movement = Input.GetAxis("MovePlayer1");    //  -1, 0 or 1
+                movement = Input.GetAxis("MovePlayer1");    //  -1, 0 or 1. "MovePlayer1" is the name given in Project Settings/Input Manager
                 break;
             case 2:
                 movement = Input.GetAxis("MovePlayer2");
@@ -32,9 +32,10 @@ public class Paddle : MonoBehaviour
 
     private void Move(float movement)
     {
-        Vector2 vlct = rb2d.velocity;
-        vlct.y = movement * moveSpeed;
-        rb2d.velocity = vlct;
+        //Vector2 vlct = rb2d.velocity;
+        //vlct.y = movement * moveSpeed;
+        //rb2d.velocity = vlct;
+        rb2d.velocity = new Vector2(0, movement * moveSpeed);
     }
 
     public bool IsLeftPaddle()
