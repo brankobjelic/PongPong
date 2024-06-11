@@ -16,7 +16,6 @@ public class GameUI : MonoBehaviour
     private void Start()
     {
         countdown.SetActive(false);
-
     }
 
     public void UpdateScores(int scorePlayer1, int scorePlayer2)
@@ -37,7 +36,11 @@ public class GameUI : MonoBehaviour
     {
         menuObject.SetActive(false);
         countdown.SetActive(true);
-        //onStartGame?.Invoke();
+    }
+
+    public void LaunchBall()
+    {
+        onStartGame?.Invoke();
     }
 
     public void OnGameEnds(int winnerId) 

@@ -58,4 +58,9 @@ public class GameManager : MonoBehaviour
         scorePlayer2 = 0;
         gameUI.UpdateScores(scorePlayer1, scorePlayer2);
     }
+
+    public void LaunchBall()
+    {
+        gameUI.LaunchBall();
+    }
 }

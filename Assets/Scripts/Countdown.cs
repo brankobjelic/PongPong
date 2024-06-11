@@ -26,7 +26,10 @@ public class Countdown : MonoBehaviour
         {
             if (currentTime == 0)
             {
+                currentTime = startingTime;
+                timer = 1.5f;
                 this.gameObject.SetActive(false);
+                GameManager.instance.LaunchBall();
             }
             else
             {
