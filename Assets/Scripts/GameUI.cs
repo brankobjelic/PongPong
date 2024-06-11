@@ -9,8 +9,15 @@ public class GameUI : MonoBehaviour
     public ScoreText scoreTextPlayer1, scoreTextPlayer2;
     public GameObject menuObject;
     public TextMeshProUGUI winTitle;
+    public GameObject countdown;
 
     public Action onStartGame;
+
+    private void Start()
+    {
+        countdown.SetActive(false);
+
+    }
 
     public void UpdateScores(int scorePlayer1, int scorePlayer2)
     {
@@ -29,7 +36,8 @@ public class GameUI : MonoBehaviour
     public void OnStartButtonClicked()
     {
         menuObject.SetActive(false);
-        onStartGame?.Invoke();
+        countdown.SetActive(true);
+        //onStartGame?.Invoke();
     }
 
     public void OnGameEnds(int winnerId) 

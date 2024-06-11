@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
     public Action onReset;  //delegate
     public int winScore = 3;
 
+    //set up the Singleton pattern
     private void Awake()
     {
         if (instance)
