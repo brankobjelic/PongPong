@@ -22,7 +22,7 @@ public class GameManager : MonoBehaviour
         else
         {
             instance = this;
-            gameUI.onStartGame += OnStartGame;
+            gameUI.onStartGame += ResetScoreboard;
         }
     }
 
@@ -52,7 +52,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    private void OnStartGame()
+    public void ResetScoreboard()
     {
         scorePlayer1 = 0;
         scorePlayer2 = 0;
