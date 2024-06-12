@@ -34,6 +34,7 @@ public class GameUI : MonoBehaviour
 
     public void OnStartButtonClicked()
     {
+        GameManager.instance.ResetScoreboard();
         menuObject.SetActive(false);
         countdown.SetActive(true);
     }
