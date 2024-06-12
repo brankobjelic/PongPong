@@ -10,12 +10,31 @@ public class GameUI : MonoBehaviour
     public GameObject menuObject;
     public TextMeshProUGUI winTitle;
     public GameObject countdown;
+    private bool winnerDisplayed = false;
+
+    private float timer = 0f;
+    private readonly float waitTime = 15f;
 
     public Action onStartGame;
 
     private void Start()
     {
         countdown.SetActive(false);
+    }
+
+    private void Update()
+    {
+        if (winnerDisplayed)
+        {
+            timer += Time.deltaTime;
+            if (timer > waitTime)
+            {
+                winTitle.text = "PongPong";
+                GameManager.instance.ResetScoreboard();
+                winnerDisplayed = false;
+                timer = 0f;
+            }
+        }
     }
 
     public void UpdateScores(int scorePlayer1, int scorePlayer2)
@@ -48,5 +67,6 @@ public class GameUI : MonoBehaviour
     {
         menuObject.SetActive(true);
         winTitle.text = $"Player {winnerId} wins!";
+        winnerDisplayed = true;
     }
 }
