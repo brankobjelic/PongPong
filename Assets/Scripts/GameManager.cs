@@ -34,7 +34,7 @@ public class GameManager : MonoBehaviour
         if (id == 2)
             scorePlayer2++;
 
-        gameUI.UpdateScores(scorePlayer1, scorePlayer2);
+        gameUI.UpdateScoreTexts(scorePlayer1, scorePlayer2);
         gameUI.HighlightScore(id);
         CheckWin();
     }
@@ -56,7 +56,7 @@ public class GameManager : MonoBehaviour
     {
         scorePlayer1 = 0;
         scorePlayer2 = 0;
-        gameUI.UpdateScores(scorePlayer1, scorePlayer2);
+        gameUI.UpdateScoreTexts(scorePlayer1, scorePlayer2);
     }
 
     public void LaunchBall()

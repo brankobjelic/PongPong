@@ -37,7 +37,7 @@ public class GameUI : MonoBehaviour
         }
     }
 
-    public void UpdateScores(int scorePlayer1, int scorePlayer2)
+    public void UpdateScoreTexts(int scorePlayer1, int scorePlayer2)
     {
         scoreTextPlayer1.SetScore(scorePlayer1);
         scoreTextPlayer2.SetScore(scorePlayer2);
