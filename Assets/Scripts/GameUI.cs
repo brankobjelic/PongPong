@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameUI : MonoBehaviour
 {
@@ -34,6 +35,10 @@ public class GameUI : MonoBehaviour
                 winnerDisplayed = false;
                 timer = 0f;
             }
+        }
+        if (Input.GetKeyDown(KeyCode.Return) && menuObject.activeSelf)
+        {
+            OnStartButtonClicked();
         }
     }
 
