@@ -55,6 +55,8 @@ public class GameUI : MonoBehaviour
     {
         GameManager.instance.ResetScoreboard();
         menuObject.SetActive(false);
+        winnerDisplayed = false;
+        timer = 0f;
         countdown.SetActive(true);
     }
 
