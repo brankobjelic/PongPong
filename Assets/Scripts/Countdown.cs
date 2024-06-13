@@ -9,7 +9,7 @@ public class Countdown : MonoBehaviour
     int currentTime;
     int startingTime = 3;
     private float timer = 1.5f;
-    private float waitTime = 1.5f;
+    private readonly float waitTime = 1.5f;
 
     public TextMeshProUGUI countdownText;
     public Animator countdownAnimator;
