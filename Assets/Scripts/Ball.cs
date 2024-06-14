@@ -51,6 +51,12 @@ public class Ball : MonoBehaviour
         {
             rb2d.velocity *= moveSpeedMultiplier;
             AdjustAngle(paddle, collision);
+            GameManager.instance.audio.PlayPaddleHitSound();
+        }
+
+        if (collision.collider.TryGetComponent<Wall>(out var wall))
+        {
+            GameManager.instance.audio.PlayWallHitSound();
         }
     }
 

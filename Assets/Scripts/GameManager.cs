@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
     public static GameManager instance; //singleton
 
     public GameUI gameUI;
+    public Audio audio;
     public int scorePlayer1, scorePlayer2;    
     public Action onReset;  //delegate
     public int winScore = 3;
@@ -36,6 +37,7 @@ public class GameManager : MonoBehaviour
 
         gameUI.UpdateScoreTexts(scorePlayer1, scorePlayer2);
         gameUI.HighlightScore(id);
+        audio.PlayScoredSound();
         CheckWin();
     }
 
