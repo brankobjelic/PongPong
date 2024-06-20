@@ -8,11 +8,13 @@ public class GameManager : MonoBehaviour
     public static GameManager instance; //singleton
 
     public GameUI gameUI;
+    public Ball ball;
     public Audio audio;
     public Spawner spawner;
     public int scorePlayer1, scorePlayer2;    
     public Action onReset;  //delegate
     public int winScore = 3;
+    public int lastPlayed;  
 
     //set up the Singleton pattern
     private void Awake()
@@ -28,6 +30,14 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.P) && !gameUI.menuObject.activeSelf)
+        {
+            Time.timeScale = Time.timeScale == 0 ? 1 : Time.timeScale == 1 ? 0 : Time.timeScale;
+        }
+    }
+
     public void OnScoreZoneReached(int id)
     {
         if (id == 1)
@@ -40,19 +50,43 @@ public class GameManager : MonoBehaviour
         gameUI.HighlightScore(id);
         audio.PlayScoredSound();
         spawner.ResetSpawner();
+        bool haveWinner = CheckWin();
+        if (!haveWinner)
+        {
+            onReset?.Invoke();
+        }
+    }
+
+    public void OnPlusOnePickedUp()
+    {
+        if(lastPlayed == 1)
+        {
+            scorePlayer1++;
+        }
+
+        if(lastPlayed == 2)
+        {
+            scorePlayer2++;
+        }
+        gameUI.UpdateScoreTexts(scorePlayer1, scorePlayer2);
+        gameUI.HighlightScore(lastPlayed);
+        audio.PlayScoredSound();
+        spawner.ResetSpawner();
         CheckWin();
     }
 
-    private void CheckWin()
+    private bool CheckWin()
     {
         int winnerId = scorePlayer1 == winScore ? 1 : scorePlayer2 == winScore ? 2 : 0;
         if (winnerId != 0)
         {
             gameUI.OnGameEnds(winnerId);
+            ball.transform.position = ball.initialPosition;
+            return true;
         }
         else
         {
-            onReset?.Invoke();
+            return false;
         }
     }
 

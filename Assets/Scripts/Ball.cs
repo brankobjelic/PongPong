@@ -11,6 +11,8 @@ public class Ball : MonoBehaviour
     public float moveSpeed = 3f;
     public float moveSpeedMultiplier = 1.05f;
 
+    public Vector3 initialPosition;
+
     //on reset x position starts from the middle, y position will be random
     public float startX = 0f;
     private readonly float maxStartY = 0f;   //private so it cannot be changed from Inspector
@@ -19,6 +21,7 @@ public class Ball : MonoBehaviour
     {
         GameManager.instance.onReset += ResetBall;  //assign ResetBall method to OnReset Action variable (delegate)
         GameManager.instance.gameUI.onStartGame += ResetBall;
+        initialPosition = transform.position;
     }
     
     private void InitialPush()
@@ -42,7 +45,12 @@ public class Ball : MonoBehaviour
         if(collision.TryGetComponent<ScoreZone>(out var scoreZone))
         {
             GameManager.instance.OnScoreZoneReached(scoreZone.id);
+        } 
+        if(collision.TryGetComponent<PlusOne>(out var plusOne))
+        {
+            GameManager.instance.OnPlusOnePickedUp();
         }
+
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -52,6 +60,7 @@ public class Ball : MonoBehaviour
             rb2d.velocity *= moveSpeedMultiplier;
             AdjustAngle(paddle, collision);
             GameManager.instance.audio.PlayPaddleHitSound();
+            GameManager.instance.lastPlayed = paddle.id;
         }
 
         if (collision.collider.TryGetComponent<Wall>(out var wall))
@@ -63,11 +72,8 @@ public class Ball : MonoBehaviour
     private void AdjustAngle(Paddle paddle, Collision2D collision)
     {
         //ball bounce angle depending on point on a paddle
-        Debug.Log(paddle.transform.position.y);
-        Debug.Log(collision.otherCollider.transform.position.y);
         float absoluteDistanceFromCenter = collision.otherCollider.transform.position.y - paddle.transform.position.y;
         float relativeDistanceFromCenter = absoluteDistanceFromCenter * 2 / paddle.transform.localScale.y;
-        Debug.Log(relativeDistanceFromCenter);
 
         int angleSign = paddle.IsLeftPaddle() ? 1 : -1;
         float paddleBounceAngle = relativeDistanceFromCenter * angleSign * maxPaddleBounceAngle;

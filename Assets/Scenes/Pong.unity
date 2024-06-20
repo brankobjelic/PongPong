@@ -299,6 +299,7 @@ MonoBehaviour:
   maxPaddleBounceAngle: 45
   moveSpeed: 8
   moveSpeedMultiplier: 1.05
+  initialPosition: {x: 0, y: 0, z: 0}
   startX: 0
 --- !u!224 &190495247 stripped
 RectTransform:
@@ -686,11 +687,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameUI: {fileID: 2124919877}
+  ball: {fileID: 28312315}
   audio: {fileID: 797564857}
   spawner: {fileID: 1238229897}
   scorePlayer1: 0
   scorePlayer2: 0
   winScore: 3
+  lastPlayed: 0
 --- !u!4 &797564856
 Transform:
   m_ObjectHideFlags: 0

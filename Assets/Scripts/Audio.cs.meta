@@ -3,7 +3,11 @@ guid: 1f0ff54fe364fcd43b1cee859d4bebe4
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - audioSourceSounds: {instanceID: 0}
+  - wallHit: {fileID: 8300000, guid: a72b0811b9fd8a44ab81475261876018, type: 3}
+  - paddleHit: {fileID: 8300000, guid: bda0d9384e82fba4b9e5c8b65f7d312a, type: 3}
+  - scored: {fileID: 8300000, guid: e323beb98ae9ba244a77a01b3d55d981, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
