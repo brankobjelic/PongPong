@@ -48,7 +48,7 @@ public class Ball : MonoBehaviour
         } 
         if(collision.TryGetComponent<PlusOne>(out var plusOne))
         {
-            GameManager.instance.OnPlusOnePickedUp();
+            GameManager.instance.OnPlusOnePickedUp(plusOne);
         }
 
     }

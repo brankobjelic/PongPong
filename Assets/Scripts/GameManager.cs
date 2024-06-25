@@ -57,7 +57,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void OnPlusOnePickedUp()
+    public void OnPlusOnePickedUp(PlusOne plusOne)
     {
         if(lastPlayed == 1)
         {
@@ -71,7 +71,7 @@ public class GameManager : MonoBehaviour
         gameUI.UpdateScoreTexts(scorePlayer1, scorePlayer2);
         gameUI.HighlightScore(lastPlayed);
         audio.PlayScoredSound();
-        spawner.ResetSpawner();
+        spawner.RemoveElement(plusOne);
         CheckWin();
     }
 
