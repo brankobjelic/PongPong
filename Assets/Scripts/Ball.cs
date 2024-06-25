@@ -50,6 +50,10 @@ public class Ball : MonoBehaviour
         {
             GameManager.instance.OnPlusOnePickedUp(plusOne);
         }
+        if(collision.TryGetComponent<ExtendPaddle>(out var extendPaddle))
+        {
+            GameManager.instance.OnExtendPaddlePickedUp(extendPaddle);
+        }
 
     }
 
