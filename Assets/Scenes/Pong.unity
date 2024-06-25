@@ -690,6 +690,8 @@ MonoBehaviour:
   ball: {fileID: 28312315}
   audio: {fileID: 797564857}
   spawner: {fileID: 1238229897}
+  leftPaddle: {fileID: 1887045222}
+  rightPaddle: {fileID: 1791078756}
   scorePlayer1: 0
   scorePlayer2: 0
   winScore: 3
@@ -957,6 +959,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectToSpawn: {fileID: 8154398758819499136, guid: f5666016050bfbe42bcdb4b696e15386, type: 3}
+  objectsToSpawn:
+  - {fileID: 8154398758819499136, guid: f5666016050bfbe42bcdb4b696e15386, type: 3}
+  - {fileID: 8497284668233351211, guid: e50879851972395469746c63b66119b3, type: 3}
 --- !u!4 &1238229898
 Transform:
   m_ObjectHideFlags: 0
@@ -2077,11 +2082,33 @@ LineRenderer:
   m_UseWorldSpace: 1
   m_Loop: 0
   m_ApplyActiveColorSpace: 1
+--- !u!114 &1791078756 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5078463424702686600, guid: 93374d743874b49418c7b40cb49d5e93, type: 3}
+  m_PrefabInstance: {fileID: 1626888027}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 224f6b6dc31964d478b81bd4b39102de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1887045218 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 318974355414251938, guid: 93374d743874b49418c7b40cb49d5e93, type: 3}
   m_PrefabInstance: {fileID: 7838516590185304060}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1887045222 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5078463424702686600, guid: 93374d743874b49418c7b40cb49d5e93, type: 3}
+  m_PrefabInstance: {fileID: 7838516590185304060}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 224f6b6dc31964d478b81bd4b39102de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1890863382
 GameObject:
   m_ObjectHideFlags: 0

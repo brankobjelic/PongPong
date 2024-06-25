@@ -11,10 +11,12 @@ public class GameManager : MonoBehaviour
     public Ball ball;
     public Audio audio;
     public Spawner spawner;
+    public Paddle leftPaddle;
+    public Paddle rightPaddle;
     public int scorePlayer1, scorePlayer2;    
     public Action onReset;  //delegate
     public int winScore = 3;
-    public int lastPlayed;  
+    public int lastPlayed;
 
     //set up the Singleton pattern
     private void Awake()
