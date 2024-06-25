@@ -71,8 +71,21 @@ public class GameManager : MonoBehaviour
         gameUI.UpdateScoreTexts(scorePlayer1, scorePlayer2);
         gameUI.HighlightScore(lastPlayed);
         audio.PlayScoredSound();
-        spawner.RemoveElement(plusOne);
+        plusOne.OnDestroy();
         CheckWin();
+    }
+
+    public void OnExtendPaddlePickedUp(ExtendPaddle extendPaddle)
+    {
+        if(lastPlayed == 1)
+        {
+            leftPaddle.Extend();
+        }
+        else if (lastPlayed == 2)
+        {
+            rightPaddle.Extend();
+        }
+        extendPaddle.OnDestroy();
     }
 
     private bool CheckWin()
