@@ -56,7 +56,8 @@ public class Spawner : MonoBehaviour
     IEnumerator SpawnAfterTime()
     {
         isCouroutineRunning=true;
-        yield return new WaitForSeconds(5);
+        int randomWaitTime = Random.Range(2, 4);
+        yield return new WaitForSeconds(randomWaitTime);
         int randomIndex = Random.Range(0, objectsToSpawn.Length);
         pickupObject = Instantiate(objectsToSpawn[randomIndex], new Vector3(0, Random.Range(-3f, 3f), 0), transform.rotation);
         pickupObjects.Add(pickupObject);
