@@ -18,10 +18,6 @@ public class Spawner : MonoBehaviour
 
     public void ResetSpawner()
     {
-        //if (pickupObjects != null)
-        //{
-        //    Destroy(pickupObjects);
-        //}
         if (pickupObjects != null)
         {
             foreach (GameObject go in pickupObjects)
@@ -32,19 +28,6 @@ public class Spawner : MonoBehaviour
         if (isCouroutineRunning)
         {
             StopAllCoroutines();
-        }
-    }
-
-    public void RemoveElement(PlusOne element)
-    {
-        //Destroy(element);
-        foreach (GameObject go in pickupObjects)
-        {
-            if(go != null && ReferenceEquals(go, element)) 
-            {
-                Destroy(go);
-                Destroy(element);
-            }
         }
     }
 
