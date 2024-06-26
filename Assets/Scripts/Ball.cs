@@ -10,6 +10,7 @@ public class Ball : MonoBehaviour
     public float maxPaddleBounceAngle = 45f;
     public float moveSpeed = 3f;
     public float moveSpeedMultiplier = 1.05f;
+    public float maxSpeed = 20f;
 
     public Vector3 initialPosition;
 
@@ -23,7 +24,16 @@ public class Ball : MonoBehaviour
         GameManager.instance.gameUI.onStartGame += ResetBall;
         initialPosition = transform.position;
     }
-    
+
+    void FixedUpdate()
+    {
+        //limit the max speed of the ball to avoid penetrating through walls
+        if (rb2d.velocity.magnitude > maxSpeed)
+        {
+            rb2d.velocity = rb2d.velocity.normalized * maxSpeed;
+        }
+    }
+
     private void InitialPush()
     {
         Vector2 dir = Random.value < 0.5f ? Vector2.left : Vector2.right;
