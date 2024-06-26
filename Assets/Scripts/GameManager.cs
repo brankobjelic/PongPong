@@ -92,6 +92,19 @@ public class GameManager : MonoBehaviour
         extendPaddle.OnDestroy();
     }
 
+    public void OnShrinkPaddlePickedUp(ShrinkPaddle shrinkPaddle)
+    {
+        if (lastPlayed == 1)
+        {
+            leftPaddle.Shrink();
+        }
+        else if (lastPlayed == 2)
+        {
+            rightPaddle.Shrink();
+        }
+        shrinkPaddle.OnDestroy();
+    }
+
     private bool CheckWin()
     {
         int winnerId = scorePlayer1 == winScore ? 1 : scorePlayer2 == winScore ? 2 : 0;

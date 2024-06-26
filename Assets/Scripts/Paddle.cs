@@ -51,7 +51,12 @@ public class Paddle : MonoBehaviour
 
     public void Extend()
     {
-        this.transform.localScale += new Vector3(0, 1.5f, 0);
+        this.transform.localScale += new Vector3(0, 1f, 0);
+    }
+
+    public void Shrink()
+    {
+        this.transform.localScale -= new Vector3(0, 0.5f, 0);
     }
 
     public void ResetPaddleSize()

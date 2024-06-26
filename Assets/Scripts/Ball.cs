@@ -54,7 +54,10 @@ public class Ball : MonoBehaviour
         {
             GameManager.instance.OnExtendPaddlePickedUp(extendPaddle);
         }
-
+        if (collision.TryGetComponent<ShrinkPaddle>(out var shrinkPaddle))
+        {
+            GameManager.instance.OnShrinkPaddlePickedUp(shrinkPaddle);
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
