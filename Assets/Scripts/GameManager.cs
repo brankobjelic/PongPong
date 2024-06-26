@@ -52,6 +52,8 @@ public class GameManager : MonoBehaviour
         gameUI.HighlightScore(id);
         audio.PlayScoredSound();
         spawner.ResetSpawner();
+        leftPaddle.ResetPaddleSize();
+        rightPaddle.ResetPaddleSize();
         bool haveWinner = CheckWin();
         if (!haveWinner)
         {

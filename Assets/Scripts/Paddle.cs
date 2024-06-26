@@ -7,6 +7,12 @@ public class Paddle : MonoBehaviour
     public Rigidbody2D rb2d;
     public int id;
     public float moveSpeed = 2f;
+    private Vector3 _originalLocalScale;
+
+    private void Start()
+    {
+        _originalLocalScale = transform.localScale;
+    }
 
     // Update is called once per frame
     void Update()
@@ -45,6 +51,11 @@ public class Paddle : MonoBehaviour
 
     public void Extend()
     {
-        Debug.Log("extending...");
+        this.transform.localScale += new Vector3(0, 1.5f, 0);
+    }
+
+    public void ResetPaddleSize()
+    {
+        this.transform.localScale = _originalLocalScale;
     }
 }
