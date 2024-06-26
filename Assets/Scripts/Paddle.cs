@@ -42,4 +42,9 @@ public class Paddle : MonoBehaviour
     {
         return id == 1;
     }
+
+    public void Extend()
+    {
+        Debug.Log("extending...");
+    }
 }
