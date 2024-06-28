@@ -297,8 +297,9 @@ MonoBehaviour:
   rb2d: {fileID: 28312312}
   maxInitialAngle: 0.67
   maxPaddleBounceAngle: 45
-  moveSpeed: 8
+  moveSpeed: 6
   moveSpeedMultiplier: 1.05
+  maxSpeed: 18
   initialPosition: {x: 0, y: 0, z: 0}
   startX: 0
 --- !u!224 &190495247 stripped
@@ -963,6 +964,7 @@ MonoBehaviour:
   - {fileID: 8154398758819499136, guid: f5666016050bfbe42bcdb4b696e15386, type: 3}
   - {fileID: 8497284668233351211, guid: e50879851972395469746c63b66119b3, type: 3}
   - {fileID: 8649799336671877181, guid: 84b813c1eef94bf4d88cbbf3021e635d, type: 3}
+  objectsWaiting: []
 --- !u!4 &1238229898
 Transform:
   m_ObjectHideFlags: 0

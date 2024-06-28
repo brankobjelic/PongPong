@@ -6,11 +6,11 @@ public class Ball : MonoBehaviour
 {
     //public GameManager gameManager;
     public Rigidbody2D rb2d;
-    public float maxInitialAngle = 0.67f;
-    public float maxPaddleBounceAngle = 45f;
-    public float moveSpeed = 3f;
-    public float moveSpeedMultiplier = 1.05f;
-    public float maxSpeed = 20f;
+    public float maxInitialAngle;
+    public float maxPaddleBounceAngle;
+    public float moveSpeed;
+    public float moveSpeedMultiplier;
+    public float maxSpeed;
 
     public Vector3 initialPosition;
 
