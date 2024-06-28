@@ -1,14 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class Spawner : MonoBehaviour
 {
     public GameObject objectToSpawn;
     public GameObject[] objectsToSpawn;
+    public List<GameObject> objectsWaiting;
     private GameObject pickupObject;
-    private List<GameObject> pickupObjects = new List<GameObject>();
+    static public List<GameObject> pickupObjects = new List<GameObject>();
     bool isCouroutineRunning = false;
+    int randomIndex = 0;
 
     private void Start()
     {
@@ -38,13 +41,20 @@ public class Spawner : MonoBehaviour
 
     IEnumerator SpawnAfterTime()
     {
-        isCouroutineRunning=true;
-        int randomWaitTime = Random.Range(2, 4);
+        isCouroutineRunning = true;
+        int randomWaitTime = Random.Range(3, 6);
         yield return new WaitForSeconds(randomWaitTime);
-        int randomIndex = Random.Range(0, objectsToSpawn.Length);
-        pickupObject = Instantiate(objectsToSpawn[randomIndex], new Vector3(0, Random.Range(-3f, 3f), 0), transform.rotation);
-        pickupObjects.Add(pickupObject);
+
+        randomIndex = Random.Range(0, objectsToSpawn.Length);
+        var found = pickupObjects.Find(po => po.tag == objectsToSpawn[randomIndex].tag);
+        if (found == null)
+        {
+            pickupObject = Instantiate(objectsToSpawn[randomIndex], new Vector3(0, Random.Range(-3f, 3f), 0), transform.rotation);
+            pickupObjects.Add(pickupObject);
+        }
+    
         isCouroutineRunning = false;
+        StartCoroutine(SpawnAfterTime());
     }
 
 }
