@@ -695,7 +695,7 @@ MonoBehaviour:
   rightPaddle: {fileID: 1791078756}
   scorePlayer1: 0
   scorePlayer2: 0
-  winScore: 3
+  winScore: 10
   lastPlayed: 0
 --- !u!4 &797564856
 Transform:
