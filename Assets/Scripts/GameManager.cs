@@ -76,7 +76,13 @@ public class GameManager : MonoBehaviour
         gameUI.HighlightScore(lastPlayed);
         audio.PlayScoredSound();
         plusOne.OnDestroy();
-        CheckWin();
+        bool haveWinner = CheckWin();
+        if (haveWinner)
+        {
+            leftPaddle.ResetPaddleSize();
+            rightPaddle.ResetPaddleSize();
+            spawner.ResetSpawner();
+        }
     }
 
     public void OnExtendPaddlePickedUp(ExtendPaddle extendPaddle)
