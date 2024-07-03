@@ -13,6 +13,9 @@ public class Paddle : MonoBehaviour
     private Vector3 _shrunkScale;
     private bool extended = false;
     private bool shrunk = false;
+    public Joystick joystickLeft;
+    public Joystick joystickRight;
+    private float digitalMove;
 
     private void Start()
     {
@@ -34,13 +37,43 @@ public class Paddle : MonoBehaviour
         switch (id)
         {
             case 1:
-                movement = Input.GetAxis("MovePlayer1");    //  -1, 0 or 1. "MovePlayer1" is the name given in Project Settings/Input Manager
+                if (Application.isMobilePlatform)
+                {
+                    movement = makeDigitalMovement(joystickLeft);
+                }
+                else
+                {
+                    movement = Input.GetAxis("MovePlayer1");    //  -1, 0 or 1. "MovePlayer1" is the name given in Project Settings/Input Manager
+                }
                 break;
             case 2:
-                movement = Input.GetAxis("MovePlayer2");
+                if (Application.isMobilePlatform)
+                {
+                    movement = makeDigitalMovement(joystickRight);
+                }
+                else
+                {
+                    movement = Input.GetAxis("MovePlayer2");    //  -1, 0 or 1. "MovePlayer2" is the name given in Project Settings/Input Manager
+                }
                 break;
         }
         return movement;
+    }
+
+    private float makeDigitalMovement(Joystick joystick)
+    {
+        if (joystick.Vertical >= .1f)
+        {
+            digitalMove = 1f;
+        }else if(joystick.Vertical <= -.1f)
+        {
+            digitalMove = -1f;
+        }
+        else
+        {
+            digitalMove = 0f;
+        }
+        return digitalMove;
     }
 
     private void Move(float movement)

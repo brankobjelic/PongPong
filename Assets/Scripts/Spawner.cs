@@ -12,7 +12,7 @@ public class Spawner : MonoBehaviour
     static public List<GameObject> pickupObjects = new List<GameObject>();
     bool isCouroutineRunning = false;
     int randomIndex = 0;
-    Collider2D overlapingCollider;
+    Collider2D overlappingCollider;
     Vector3 spawnPosition;
 
     private void Start()
@@ -54,8 +54,8 @@ public class Spawner : MonoBehaviour
             do 
             {
                 spawnPosition = new Vector3(0, Random.Range(-3f, 3f), 0);
-                overlapingCollider = Physics2D.OverlapBox(spawnPosition, objectsToSpawn[randomIndex].GetComponent<BoxCollider2D>().size, 0);                
-            } while (overlapingCollider != null);
+                overlappingCollider = Physics2D.OverlapBox(spawnPosition, objectsToSpawn[randomIndex].GetComponent<BoxCollider2D>().size, 0);                
+            } while (overlappingCollider != null);
             pickupObject = Instantiate(objectsToSpawn[randomIndex], spawnPosition, transform.rotation);
             pickupObjects.Add(pickupObject);
         }
